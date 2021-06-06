@@ -15,14 +15,17 @@
     <div class="jumbotron text-center">
         <!-- Render our data -->
         <h1>Mission to Mars</h1>
+        <p><a classs="btn btn-primary btn-lg" href="/scrape" role ="button">Get Data</a></p>
     </div><!--End of jumbotron-->
 
     <div col-md-12>
         <h3>Latest Mars News</h3>
         <h5>NASA's Mars Rover Drivers Need Your Help</h5>
         <p>
-            Using an online tool...
+            Using an online tool... {{ mars_collection.news_title }}
         </p>
+        <img src="{{ mars_collection.complete_image_link }}" alt="Mars">
+        <!--mars_data["JPL Mars Spaces Images: Featured Image"] = complete_image_link-->
     </div><!--End of col-md-12 going across the page-->
 
     <div class="row">
