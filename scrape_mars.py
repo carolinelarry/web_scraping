@@ -2,13 +2,14 @@ from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import time
 from webdriver_manager.chrome import ChromeDriverManager
+import pandas as pd
 
 def scrape_info():
     #Setup splinter
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
 
-    mars_data = {}
+    mars_collection = {}
 
     #-----NASA URL--------
 
@@ -31,8 +32,8 @@ def scrape_info():
     #Findind the news paragraph
     news_p = nasa_results.find('div', class_='article_teaser_body').text
 
-    mars_data["NASA News Title"] = news_title
-    mars_data["NASA Paragraph"] = news_p
+    mars_collection["NASA_News_Title"] = news_title
+    mars_collection["NASA_Paragraph"] = news_p
 
     #return(mars_data)
 
@@ -57,12 +58,28 @@ def scrape_info():
     complete_image_link = jpl_url + image_link
 
     #Adding link to dictionary
-    mars_data["JPL Mars Spaces Images: Featured Image"] = complete_image_link
+    mars_collection["JPL_Mars_Spaces_Images_Featured_Image"] = complete_image_link
+
 
     #-----MARS FACTS URL--------
     #Setting url to variable
     facts_url = 'https://galaxyfacts-mars.com/'
-    #FIGURE OUT WHAT NEEDS TO GO HERE
+
+    #Reading table from website into table in pandas
+    mars_table = pd.read_html(facts_url)
+
+    #Creating a datafrace from the table
+    mars_facts_df = mars_table[1]
+
+    mars_facts_df.columns=["Name of Measurements", "Measurements"]
+
+    #To html table
+    html_table = mars_facts_df.to_html()
+
+    mars_collection["table"] = html_table
+
+    
+
 
     #-----MARS HEMS URL--------
     #Setting url variable
@@ -80,20 +97,19 @@ def scrape_info():
 
     #Looping through to get all image urls
 
-    #hemisphere_image_urls = []: from jupyter notebook
+    hemisphere_image_urls = []
 
-    for result in mars_hems_results:
+    for result in range(len(mars_hems_results)):
+        browser.find_by_css("a.product-item img")[result].click()
+        img_link = browser.find_by_text("Sample").first["href"]
+        img_title = browser.find_by_css("h2.title").text
+        hemisphere_image_urls.append({"img_title": img_title, "img_link": img_link})
+        browser.back()
     
-        image_link = result.img['src']
-        image_title = result.h3.text
+    mars_collection["Hemisphere_Title_Link"] = hemisphere_image_urls
     
-        complete_image_link = hemisphere_images_url + image_link
-    
-        #hemisphere_image_urls.append({image_title: complete_image_link})
-       
-        mars_data[image_title] = complete_image_link
 
     browser.quit()
 
-    return mars_data
+    return mars_collection
 

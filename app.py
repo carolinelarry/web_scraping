@@ -17,7 +17,7 @@ def home():
 @app.route("/scrape")
 def scraper():
     mars_collection = mongo.db.mars_collection
-    mars_data = scrape_mars.scrape()
+    mars_data = scrape_mars.scrape_info()
     mars_collection.update({}, mars_data, upsert=True)
     return redirect("/", code=302)
 
@@ -44,5 +44,5 @@ def scraper():
 
    # return redirect("/")
 
-#if __name__ == "__main__":
-   # app.run(debug=True)
+if __name__ == "__main__":
+  app.run(debug=True)
