@@ -4,6 +4,7 @@ import time
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 
+#Scraping websites
 def scrape_info():
     #Setup splinter
     executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -35,7 +36,7 @@ def scrape_info():
     mars_collection["NASA_News_Title"] = news_title
     mars_collection["NASA_Paragraph"] = news_p
 
-    #return(mars_data)
+    
 
     #-----JPL URL--------
     #Setting url variable
