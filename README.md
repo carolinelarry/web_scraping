@@ -8,8 +8,7 @@ Completed the initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, an
 
 ### NASA Mars News
 
-* Scraped the [Mars News Site](https://redplanetscience.com/) and collected the latest News Title and Paragraph Text. Assigned the text to variables that I reference later
-
+* Scraped the [Mars News Site](https://redplanetscience.com/) and collected the latest news title and paragraph text
 ### JPL Mars Space Images - Featured Image
 
 * Visited the url for the Featured Space Image site [here](https://spaceimages-mars.com)
