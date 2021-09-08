@@ -2,7 +2,6 @@
 
 Built a web application that scraped various websites for data related to Mars and displayed the information in a single HTML page.
 
-<hr>
 
 <img width="1440" alt="Screen Shot 2021-08-30 at 5 25 13 PM" src="https://user-images.githubusercontent.com/79863465/131413830-6bd14c7a-770e-478b-8608-7bf189d190bd.png">
 <img width="1440" alt="Screen Shot 2021-08-30 at 5 25 25 PM" src="https://user-images.githubusercontent.com/79863465/131413866-3cadf223-6461-4311-8a9b-09fbfeb3a5d6.png">
