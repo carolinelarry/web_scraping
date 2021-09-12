@@ -50,6 +50,7 @@ Used MongoDB with Flask templating to create a new HTML page that displays all o
 
 ## Contact
 Email: cgrace1011@gmail.com
+
 LinkedIn: https://www.linkedin.com/in/caroline-larry-9112b0187/
 
 
