@@ -51,8 +51,6 @@ Used MongoDB with Flask templating to create a new HTML page that displays all o
 ## Contact
 Email: cgrace1011@gmail.com
 
-LinkedIn: https://www.linkedin.com/in/caroline-larry-9112b0187/
-
 
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
 
